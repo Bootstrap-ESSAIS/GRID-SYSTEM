@@ -20,26 +20,26 @@
 
   <script src="./_src/index.js"></script>
 </head>
-<body onload="fMain();">
-  <h1 class="d-flex justify-content-center"> BOOTSTRAP 4</h1>
+<body onload="fMain();" style="margin:0;">
+  <h1 class="d-flex justify-content-center"> BOOTSTRAP 4</h1><br><br>
 
   <div class="container-fluid bg-warning">
-    avec 'container-fluid', le container prend toute la largeur du ViewPort, quelle que soit sa taille !
+    div avec class <b>'container-fluid'</b>, le container prend toute la largeur du ViewPort, quelle que soit sa taille !
   </div>
   <div class="container bg-success">
-    avec 'container' : voir tableau ci-dessous, pour comprendre pourquoi cette largeur.
+    div avec class <b>'container'</b> : voir tableau ci-dessous, pour comprendre pourquoi cette largeur.
   </div>
   <div class="container-sm bg-primary">
-    avec 'container-sm' (idem que 'container' en fait) : voir tableau ci-dessous, pour comprendre pourquoi cette largeur.
+    div avec class <b>'container-sm'</b> (idem que 'container' en fait) : voir tableau ci-dessous, pour comprendre pourquoi cette largeur.
   </div>
   <div class="container-md bg-success">
-    avec 'container-md' : voir tableau ci-dessous, pour comprendre pourquoi cette largeur.
+    div avec class <b>'container-md'</b> : voir tableau ci-dessous, pour comprendre pourquoi cette largeur.
   </div>
   <div class="container-lg bg-secondary">
-    avec 'container-lg' : voir tableau ci-dessous, pour comprendre pourquoi cette largeur.
+    div avec class <b>'container-lg'</b> : voir tableau ci-dessous, pour comprendre pourquoi cette largeur.
   </div>
   <div class="container-xl bg-danger">
-    avec 'container-xl' : voir tableau ci-dessous, pour comprendre pourquoi cette largeur.
+    div avec class <b>'container-xl'</b> : voir tableau ci-dessous, pour comprendre pourquoi cette largeur.
   </div>
 
   <div class="d-flex justify-content-center">
@@ -47,11 +47,11 @@
   </div>
 
   
-  <br><hr /><br>
+  <br><hr /><hr /><br>
 
 
-  <label class="my-label">class 'container' et Colonnes en col-..., restent réparties horiz., quelle que soit la width
-    du ViewPort.</label>
+  <label class="my-label">class 'container' et Colonnes en col-..., restent réparties horiz., <b>quelle que soit la width
+    du ViewPort</b>, car on a rien précisé à ce sujet (pas de sm, md, etc...).</label>
   <div class="container">
     <div class="row border">
       <div class="bg-warning col-2">col-2</div>
@@ -136,6 +136,103 @@
     </div>     
 
   </div>
+
+
+  <br><hr /><br>
+
+  <h5>&nbsp;&nbsp;&nbsp;Lorsque la répartition des 12ème entre colonnes, n'est pas précisée, cela signifie que la répartition est égale :</h5>
+  <div class="container">
+
+    <div class="row border" title="Ici en dessous de md, ça s'empilera car on n'a pas précisé comment gérer dans ce cas.">
+      <div class="bg-warning    col-md ">col-md</div>
+      <div class="bg-secondary  col-md ">col-md</div>
+      <div class="bg-success    col-md ">col-md</div>
+      <div class="bg-primary    col-md ">col-md</div>
+    </div>
+
+    <div class="row border" title="Ici ça restera toujours sur une ligne car on n'a pas précisé de taille limite de ViewPort.">
+      <div class="bg-warning    col ">col</div>
+      <div class="bg-light  col ">col</div>
+      <div class="bg-success    col ">col</div>
+      <div class="bg-primary    col ">col</div>
+    </div>    
+
+  </div>  
+
+  <br><hr /><br>
+
+  <h5>&nbsp;&nbsp;&nbsp;Lorsque la répartition des 12ème entre colonnes, n'est précisée que pour quelques colonnes, 
+    alors l'espace restant sera partagé équitablement entre les colonnes pour lesquelles on n'a pas précisé:</h5>
+  <div class="container">
+
+    <div class="row border" title="Ici en dessous de md, ça s'empilera car on n'a pas précisé comment gérer dans ce cas.">
+      <div class="bg-warning    col-md ">col-md</div>
+      <div class="bg-secondary  col-md-3 ">col-md-3</div>
+      <div class="bg-success    col-md-5 ">col-md-5</div>
+      <div class="bg-primary    col-md ">col-md</div>
+    </div>
+
+    <div class="row border" title="Ici ça restera toujours sur une ligne car on n'a pas précisé de taille limite de ViewPort.">
+      <div class="bg-warning    col-3 ">col-3</div>
+      <div class="bg-secondary  col ">col</div>
+      <div class="bg-success    col ">col</div>
+      <div class="bg-primary    col-5 ">col-5</div>
+    </div>    
+
+  </div>  
+
+  <br><hr /><br>  
+
+
+  <h5>&nbsp;&nbsp;&nbsp;Il est aussi possible de mettre des <b>row dans des col</b>, et qui dit nouvelle row, dit : nouveaux groupes de 12 unités, ici
+    les 3 colonnes entourées de rouge :</h5>
+  <div class="container">
+
+    <div class="row">
+      <div class="bg-warning col-md-3 " style="border:solid 4px pink;"><i>col-md-3</i></div>
+      <div class="bg-warning   col-md-9" style="border:solid 4px pink;">
+          <i>col-md-9</i>
+          <div class="row" style="border:solid 2px red;">
+            <div class="col-lg-6 bg-secondary">col-lg-6</div>
+            <div class="col-lg-4 bg-primary">col-lg-4</div>
+            <div class="col-lg-2 bg-light">col-lg-2</div>
+          </div>
+      </div>
+    </div>
+
+  </div> 
+
+
+  <br><hr /><br>
+
+
+  <h5>&nbsp;&nbsp;&nbsp;Lorsque le <span class="my-highlight3">total</span> des 12ème sur une row, <span class="my-highlight3">fait moins de 12</span>, il reste des blancs.
+    Dans ce cas, on peut choisir d'ajouter un offset de tant d'unités avant une colonne <small>(depuis le class=.. celle-ci)</small>, pour la déplacer
+    d'autant vers la droite. La class CSS à lui ajouter est : offset-<b>N</b> , avec <b>N</b> le nb. d'unités (12ème) de décalage.
+    Enfin, tout comme pour les col-... il existe aussi des noms de classes du genre par exemple offset-<i>md</i>-<b>N</b>, signifiant ici <i>par exemple</i> que,
+    <i>l'offset ne prendra effet que si la largeur du ViewPort est &gt;= la taille d"un ViewPort Medium</i>.
+
+  </h5>
+  <div class="container">
+
+    <div class="row border">
+      <div class="bg-warning col-sm-2 " >col-sm-2</div>
+      <div class="bg-primary col-sm-5" >col-sm-5</div>
+    </div>
+    <div class="row border">
+      <div class="bg-warning col-sm-2 offset-2" >col-sm-2 précédé d'un offset de 2 unités (offset-2).</div>
+      <div class="bg-primary col-sm-5 offset-1" >col-sm-5 précédé d'un offset de 1 unité (offset-1).</div>
+    </div>    
+    <div class="row border">
+      <div class="bg-warning col-sm-2 offset-md-1" >col-sm-2 précédé d'un offset de 1 unité (offset-<b>md</b>-1).</div>
+      <div class="bg-primary col-sm-5 offset-md-2" >col-sm-5 précédé d'un offset de 2 unités (offset-<b>md</b>-2).</div>
+    </div>     
+
+  </div> 
+
+
+  <br><hr /><br>
+
 
   </body>
 
