@@ -14,14 +14,14 @@
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>  
 
-  <link rel="stylesheet" href="./css/index.css" />
 
+  <link rel="stylesheet" href="./css/index.css" />
 
 
   <script src="./_src/index.js"></script>
 </head>
-<body onload="fMain();" style="margin:0;">
-  <h1 class="d-flex justify-content-center"> BOOTSTRAP 4</h1><br><br>
+<body onload="fMain();" style="margin:0;" onresize='Debug.windowSize();'>
+  <h1 class="d-flex justify-content-center"> BOOTSTRAP 4</h1><h3>(cf. taille actuelle du Viewport dans la console)</h3><br><br>
 
   <div class="container-fluid bg-warning">
     div avec class <b>'container-fluid'</b>, le container prend toute la largeur du ViewPort, quelle que soit sa taille !
@@ -109,30 +109,32 @@
   </div>
 
 
-  <br><hr /><br>
+
+  <br> <br><hr /><br> <br>
 
 
+  
   <div class="container">
 
     <div class="row border" title="Et en dessous de md, ça s'empilera car on n'a pas précisé comment gérer.">
-      <div class="bg-warning    col-md-2  col-lg-1  col-xl-5">2 en md &+<b> ;</b> 1 en lg &+<b> ;</b> 5 en xl &+</div>
-      <div class="bg-secondary  col-md-4  col-lg-9  col-xl-1">4 en md &+<b> ;</b> 9 en lg &+<b> ;</b> 1 en xl &+</div>
-      <div class="bg-success    col-md-3  col-lg-1  col-xl-2">3 en md &+<b> ;</b> 1 en lg &+<b> ;</b> 2 en xl &+</div>
-      <div class="bg-primary    col-md-3  col-lg-1  col-xl-4">3 en md &+<b> ;</b> 1 en lg &+<b> ;</b> 4 en xl &+</div>
+      <div class="bg-warning    col-md-2  col-lg-1  col-xl-5">md-2 +<b> </b> lg-1 +<b> </b> xl-5</div>
+      <div class="bg-secondary  col-md-4  col-lg-9  col-xl-1">md-4 +<b> </b> lg-9 +<b> </b> xl-1</div>
+      <div class="bg-success    col-md-3  col-lg-1  col-xl-2">md-3 +<b> </b> lg-1 +<b> </b> xl-2</div>
+      <div class="bg-primary    col-md-3  col-lg-1  col-xl-4">md-3 +<b> </b> lg-1 +<b> </b> xl-4</div>
     </div>
 
     <div class="row border" title="Et en dessous de sm, ça s'empilera car on n'a pas précisé comment gérer.">
-      <div class="bg-warning    col-sm-1  col-xl-5">1 en sm &+<b> ;</b> 5 en xl &+</div>
-      <div class="bg-secondary  col-sm-3  col-xl-1">3 en sm &+<b> ;</b> 1 en xl &+</div>
-      <div class="bg-success    col-sm-6  col-xl-2">6 en sm &+<b> ;</b> 2 en xl &+</div>
-      <div class="bg-primary    col-sm-2  col-xl-4">2 en sm &+<b> ;</b> 4 en xl &+</div>
+      <div class="bg-warning    col-sm-1  col-xl-5">sm-1 +<b> </b> xl-5</div>
+      <div class="bg-secondary  col-sm-3  col-xl-1">sm-3 +<b> </b> xl-1</div>
+      <div class="bg-success    col-sm-6  col-xl-2">sm-6 +<b> </b> xl-2</div>
+      <div class="bg-primary    col-sm-2  col-xl-4">sm-2 +<b> </b> xl-4</div>
     </div>
 
     <div class="row border" title="Et en dessous de lg, ça s'empilera car on n'a pas précisé comment gérer.">
-      <div class="bg-warning    col-lg-1  col-xl-6">1 en lg &+<b> ;</b> 6 en xl &+</div>
-      <div class="bg-secondary  col-lg-9  col-xl-1">9 en lg &+<b> ;</b> 1 en xl &+</div>
-      <div class="bg-success    col-lg-1  col-xl-1">1 en lg &+<b> ;</b> 1 en xl &+</div>
-      <div class="bg-primary    col-lg-1  col-xl-4">1 en lg &+<b> ;</b> 4 en xl &+</div>
+      <div class="bg-warning    col-lg-1  col-xl-6">lg-1 +<b> </b>xl-6 +</div>
+      <div class="bg-secondary  col-lg-9  col-xl-1">lg-9 +<b> </b>xl-1 +</div>
+      <div class="bg-success    col-lg-1  col-xl-1">lg-1 +<b> </b>xl-1 +</div>
+      <div class="bg-primary    col-lg-1  col-xl-4">lg-1 +<b> </b>xl-4 +</div>
     </div>     
 
   </div>
@@ -207,7 +209,7 @@
 
 
   <h5>&nbsp;&nbsp;&nbsp;Lorsque le <span class="my-highlight3">total</span> des 12ème sur une row, <span class="my-highlight3">fait moins de 12</span>, il reste des blancs.
-    Dans ce cas, on peut choisir d'ajouter un offset de tant d'unités avant une colonne <small>(depuis le class=.. celle-ci)</small>, pour la déplacer
+    Dans ce cas, on peut choisir d'ajouter un offset de tant d'unités avant une colonne <small>(depuis le class=.. de celle-ci)</small>, pour la déplacer
     d'autant vers la droite. La class CSS à lui ajouter est : offset-<b>N</b> , avec <b>N</b> le nb. d'unités (12ème) de décalage.
     Enfin, tout comme pour les col-... il existe aussi des noms de classes du genre par exemple offset-<i>md</i>-<b>N</b>, signifiant ici <i>par exemple</i> que,
     <i>l'offset ne prendra effet que si la largeur du ViewPort est &gt;= la taille d"un ViewPort Medium</i>.

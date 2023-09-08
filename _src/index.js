@@ -1,9 +1,29 @@
+
 let fMain=function() {
-    test1();
+  Debug.windowSize();
 }
 
 //---------------------------------------
 
-let test1=function() {
-    
+class Debug {
+  static windowSize() {
+    console.log(this.getWindowSizeAsString());
+  }
+  static getWindowSizeAsString() {
+    var wInfos = Array( 
+      `InnerWidth=${WindowInfos.getInnerWidth()}px`,
+      `InnerHeight=${WindowInfos.getInnerHeight()}px`
+    );
+    return wInfos.join("    /     ");
+  }
 }
+
+class WindowInfos {
+  static getInnerWidth() {
+    return window.innerWidth;
+  }  
+  static getInnerHeight() {
+    return window.innerHeight;
+  }    
+}
+
